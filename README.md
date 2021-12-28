@@ -4,12 +4,12 @@
 
 ```
 $(docker images opencilk | grep v1.1 -q) && echo "Already installed" || $(cd $(mktemp -d) && wget https://github.com/OpenCilk/opencilk-project/releases/download/opencilk%2Fv1.1/docker-opencilk-v1.1.tar.gz && docker load < docker-opencilk-v1.1.tar.gz)
-docker run --rm -v{PROJECT_DIR}:/root/CW2 -ti opencilk:v1.1 sh -c 'apt-get install -y git wget && \
+docker run --rm -v{PROJECT_DIR}:/root/CW2 -ti opencilk:v1.1 sh -c 'apt-get update && apt-get install -y git wget && \
 wget https://raw.githubusercontent.com/deepsea-inria/pctl/master/script/get.sh && \
 chmod +x get.sh && \
 ./get.sh && \
 cd /root/CW2/build && make && \
-taskset --cpu-list 0-8:2 ./a.out"
+taskset --cpu-list 0-8:2 ./a.out'
 ```
 
 ## Possible output
