@@ -28,4 +28,5 @@ taskset --cpu-list 0-8:2 ./a.out"
 10048 8735  8669  8453  8719  8924
 ```
 First long line -- ms in seq version of algo (last value -- average)
+
 Last  long line -- ms in par version of algo (last value -- average)
